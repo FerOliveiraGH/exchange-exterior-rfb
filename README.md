@@ -13,9 +13,9 @@ Lib to produce the report required by [IN 1888](http://normas.receita.fazenda.go
 import Exchange from "exchanges-rfb"
 
 const MyEx = new Exchange({
-  exchange_name: "BiscointEx",
-  exchange_cnpj: "17.869.530/0001-73",
-  exchange_url: "https://testex.biscoint.io"
+  exchange_name: "Binance",
+  exchange_country: "US",
+  exchange_url: "https://binance.com"
 })
 
 MyEx.addBuySellOperation({
