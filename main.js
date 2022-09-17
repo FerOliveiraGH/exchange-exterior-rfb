@@ -10,15 +10,13 @@ import {
     balanceReportSchema
 } from './schemas.js';
 import {
-    createHeader,
     createBuySellOp,
     createPermutationOp,
     createDepositOp,
     createWithdrawOp,
     createPaymentOp,
     createOtherOp,
-    createBalanceReportData,
-    createFooter
+    createBalanceReportData
 } from './rfb_file.js';
 
 class RFBFile {
@@ -82,8 +80,6 @@ class RFBFile {
         let res = '';
         let totalValue = 0;
 
-        res += createHeader(this.exchange_data);
-
         const orderByDate = (a, b) => moment(a.date) - moment(b.date);
         this.buySellOps = this.buySellOps.sort(orderByDate);
         this.permutationOps = this.permutationOps.sort(orderByDate);
@@ -97,7 +93,7 @@ class RFBFile {
             res += createBuySellOp(val);
         });
         this.permutationOps.forEach(val => {
-            res += createPermutationOp(val);
+            res += createPermutationOp(val, this.exchange_data);
         });
         this.depositOps.forEach(val => {
             res += createDepositOp(val);
@@ -113,17 +109,6 @@ class RFBFile {
         });
         this.balanceReport.forEach(val => {
             res += createBalanceReportData(val);
-        });
-
-        res += createFooter({
-            buySellQuantity: this.buySellOps.length,
-            permutationQuantity: this.permutationOps.length,
-            depositQuantity: this.depositOps.length,
-            withdrawQuantity: this.withdrawOps.length,
-            paymentQuantity: this.paymentOps.length,
-            otherQuantity: this.otherOps.length,
-            balanceReportQuantity: this.balanceReport.length,
-            buySellTotal: totalValue,
         });
 
         return res;

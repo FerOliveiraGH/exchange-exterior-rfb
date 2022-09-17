@@ -19,11 +19,9 @@ function formatDate(date) {
 
 export function createHeader(obj) {
     const line_type = '0000';
-    const { exchange_name, exchange_cnpj, exchange_url } = obj;
+    const { exchange_name, exchange_country, exchange_url } = obj;
 
-    const rfb_exchange_cnpj = exchange_cnpj.match(/\d+/g).join('');
-
-    return `${line_type}|${rfb_exchange_cnpj}|${exchange_name}|${exchange_url}\r\n`;
+    return `${line_type}|${exchange_country}|${exchange_name}|${exchange_url}\r\n`;
 }
 
 export function createFooter(obj) {
@@ -75,7 +73,7 @@ export function createBuySellOp(obj) {
     return `${line_type}|${formatDate(date)}|${id}|${operation_code}|${rfb_brl_value}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${rfb_buyer_identity_type}|${buyer_country}|${rfb_buyer_cpf}|${rfb_buyer_nif}|${buyer_fullname}|${buyer_address}|${rfb_seller_identity_type}|${seller_country}|${rfb_seller_cpf}|${rfb_seller_nif}|${seller_fullname}|${seller_address}\r\n`;
 }
 
-export function createPermutationOp(obj) {
+export function createPermutationOp(obj, exchange_data) {
     const line_type = '0210';
     const operation_code = 'II';
     const {
@@ -87,17 +85,13 @@ export function createPermutationOp(obj) {
 
         delivered_coin_symbol,
         delivered_coin_quantity,
-
-        exchange_name,
-        exchange_url,
-        exchange_country,
     } = obj;
 
     const rfb_brl_fees = brl_fees.toFixed(2).replace(/\./g, '');
     const rfb_received_coin_quantity = received_coin_quantity.toFixed(10).replace(/\./g, '');
     const rfb_delivered_coin_quantity = delivered_coin_quantity.toFixed(10).replace(/\./g, '');
 
-    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_name}|${exchange_url}|${exchange_country}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
 }
 
 export function createDepositOp(obj) {

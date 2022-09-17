@@ -128,12 +128,7 @@ const commonSchemas = {
 
 export const exchangeDataSchema = new SimpleSchema({
     exchange_name: commonSchemas.name,
-    exchange_cnpj: {
-      type: String,
-      custom: function () {
-          return cnpj.isValid(this.value) ? undefined : 'Invalid CNPJ';
-      },
-    },
+    exchange_country: commonSchemas.country,
     exchange_url: commonSchemas.url,
 });
 

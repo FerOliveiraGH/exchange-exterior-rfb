@@ -1,7 +1,7 @@
 var TestEx = require('../index.js').default;
 var biscointTestex = new TestEx({
     exchange_name: 'Binance', // Exchange Name
-    exchange_cnpj: '37.512.394/0001-77', // Exchange CNPJ
+    exchange_country: 'US', // Exchange Country
     exchange_url: 'https://binance.com' // Exchange URL
 });
 
