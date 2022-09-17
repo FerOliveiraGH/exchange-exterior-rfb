@@ -1,8 +1,8 @@
 var TestEx = require('../index.js').default;
 var biscointTestex = new TestEx({
-    exchange_name: 'BiscointTestex', // Exchange Name
-    exchange_cnpj: '17.869.530/0001-73', // Exchange CNPJ
-    exchange_url: 'https://testex.biscoint.io' // Exchange URL
+    exchange_name: 'Binance', // Exchange Name
+    exchange_cnpj: '37.512.394/0001-77', // Exchange CNPJ
+    exchange_url: 'https://binance.com' // Exchange URL
 });
 
 biscointTestex.addBuySellOperation({ 
@@ -27,25 +27,18 @@ biscointTestex.addBuySellOperation({
 });
 
 biscointTestex.addPermutationOperation({ 
-    date: '10/05/2019',
-    //id: '', Id is optional
-    //brl_fees, Fees is optional
+    date: '26/08/2022',
+    //brl_fees: '00', // Fees is optional
 
-    user1_coin_symbol: 'BTC',
-    user1_coin_quantity: '0.01',
-    user1_identity_type: 'CPF',
-    user1_country: 'BR',
-    //user1_document, Document is optional
-    user1_fullname: 'CR. HOLYVEYRAH',
-    user1_address: 'RUA DAS PIRAMIDES, QD 10, LT 17',
+    received_coin_symbol: 'BTC',
+    received_coin_quantity: '0.01',
 
-    user2_coin_symbol: 'USDT',
-    user2_coin_quantity: '1003.00',
-    user2_identity_type: 'NIF_PJ',
-    user2_country: 'US',
-    //user2_document, Document is optional
-    user2_fullname: 'BITEX EXCHANGE',
-    //user2_address, Address is optional
+    delivered_coin_symbol: 'USDT',
+    delivered_coin_quantity: '1003.00',
+
+    exchange_name: 'Binance',
+    exchange_url: 'https://binance.com',
+    exchange_country: 'US',
 });
 
 biscointTestex.addDepositOperation({

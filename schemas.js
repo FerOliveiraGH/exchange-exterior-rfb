@@ -158,24 +158,17 @@ export const buySellOperationSchema = new SimpleSchema({
 
 export const permutationOperationSchema = new SimpleSchema({
     date: commonSchemas.date,
-    id: commonSchemas.id,
     brl_fees: commonSchemas.brl_fees,
 
-    user1_coin_symbol: commonSchemas.coin_symbol,
-    user1_coin_quantity: commonSchemas.coin,
-    user1_identity_type: commonSchemas.identity_type,
-    user1_country: commonSchemas.country,
-    user1_document: commonSchemas.document,
-    user1_fullname: commonSchemas.name,
-    user1_address: commonSchemas.address,
+    received_coin_symbol: commonSchemas.coin_symbol,
+    received_coin_quantity: commonSchemas.coin,
 
-    user2_coin_symbol: commonSchemas.coin_symbol,
-    user2_coin_quantity: commonSchemas.coin,
-    user2_identity_type: commonSchemas.identity_type,
-    user2_country: commonSchemas.country,
-    user2_document: commonSchemas.document,
-    user2_fullname: commonSchemas.name,
-    user2_address: commonSchemas.address,
+    delivered_coin_symbol: commonSchemas.coin_symbol,
+    delivered_coin_quantity: commonSchemas.coin,
+
+    exchange_name: commonSchemas.name,
+    exchange_url: commonSchemas.url,
+    exchange_country: commonSchemas.country,
 });
 
 export const depositOperationSchema = new SimpleSchema({

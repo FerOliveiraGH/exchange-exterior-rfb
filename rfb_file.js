@@ -80,40 +80,24 @@ export function createPermutationOp(obj) {
     const operation_code = 'II';
     const {
         date,
-        id,
         brl_fees,
 
-        user1_coin_symbol,
-        user1_coin_quantity,
-        user1_identity_type,
-        user1_country,
-        user1_document,
-        user1_fullname,
-        user1_address,
+        received_coin_symbol,
+        received_coin_quantity,
 
-        user2_coin_symbol,
-        user2_coin_quantity,
-        user2_identity_type,
-        user2_country,
-        user2_document,
-        user2_fullname,
-        user2_address,
+        delivered_coin_symbol,
+        delivered_coin_quantity,
+
+        exchange_name,
+        exchange_url,
+        exchange_country,
     } = obj;
 
     const rfb_brl_fees = brl_fees.toFixed(2).replace(/\./g, '');
-    const rfb_user1_coin_quantity = user1_coin_quantity.toFixed(10).replace(/\./g, '');
-    const rfb_user2_coin_quantity = user2_coin_quantity.toFixed(10).replace(/\./g, '');
+    const rfb_received_coin_quantity = received_coin_quantity.toFixed(10).replace(/\./g, '');
+    const rfb_delivered_coin_quantity = delivered_coin_quantity.toFixed(10).replace(/\./g, '');
 
-    const rfb_user1_identity_type = getIdentityRFB(user1_identity_type);
-    const rfb_user2_identity_type = getIdentityRFB(user2_identity_type);
-
-    const rfb_user1_cpf = (user1_document && [1,2].includes(rfb_user1_identity_type)) ? user1_document.match(/\d+/g).join('') : '';
-    const rfb_user1_nif = (user1_document && [3,4,5].includes(rfb_user1_identity_type)) ? user1_document : '';
-
-    const rfb_user2_cpf = (user2_document && [1,2].includes(rfb_user2_identity_type)) ? user2_document.match(/\d+/g).join('') : '';
-    const rfb_user2_nif = (user2_document && [3,4,5].includes(rfb_user2_identity_type)) ? user2_document : '';
-
-    return `${line_type}|${formatDate(date)}|${id}|${operation_code}|${rfb_brl_fees}|${user1_coin_symbol}|${rfb_user1_coin_quantity}|${rfb_user1_identity_type}|${user1_country}|${rfb_user1_cpf}|${rfb_user1_nif}|${user1_fullname}|${user1_address}|${user2_coin_symbol}|${rfb_user2_coin_quantity}|${rfb_user2_identity_type}|${user2_country}|${rfb_user2_cpf}|${rfb_user2_nif}|${user2_fullname}|${user2_address}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_name}|${exchange_url}|${exchange_country}\r\n`;
 }
 
 export function createDepositOp(obj) {
