@@ -32,45 +32,22 @@ export function createFooter(obj) {
     return `${line_type}|${buySellQuantity}|${rfb_buySellTotal}|${permutationQuantity}|${depositQuantity}|${withdrawQuantity}|${paymentQuantity}|${otherQuantity}|${balanceReportQuantity}\r\n`;
 }
 
-export function createBuySellOp(obj) {
-    const line_type = '0110';
+export function createBuySellOp(obj, type, exchange_data) {
+    const line_type = type === "BUY" ? '0110' : '0120';
     const operation_code = 'I';
     const {
         date,
-        id,
         brl_value,
         brl_fees,
         coin_symbol,
         coin_quantity,
-
-        buyer_identity_type,
-        buyer_country,
-        buyer_document,
-        buyer_fullname,
-        buyer_address,
-
-        seller_identity_type,
-        seller_country,
-        seller_document,
-        seller_fullname,
-        seller_address,
     } = obj;
 
     const rfb_brl_value = brl_value.toFixed(2).replace(/\./g, '');
     const rfb_brl_fees = brl_fees.toFixed(2).replace(/\./g, '');
     const rfb_coin_quantity = coin_quantity.toFixed(10).replace(/\./g, '');
 
-    const rfb_buyer_identity_type = getIdentityRFB(buyer_identity_type);
-
-    const rfb_buyer_cpf = (buyer_document && [1,2].includes(rfb_buyer_identity_type)) ? buyer_document.match(/\d+/g).join('') : '';
-    const rfb_buyer_nif = (buyer_document && [3,4,5].includes(rfb_buyer_identity_type)) ? buyer_document : '';
-
-    const rfb_seller_identity_type = getIdentityRFB(seller_identity_type);
-
-    const rfb_seller_cpf = (seller_document && [1,2].includes(rfb_seller_identity_type)) ? seller_document.match(/\d+/g).join('') : '';
-    const rfb_seller_nif = (seller_document && [3,4,5].includes(rfb_seller_identity_type)) ? seller_document : '';
-
-    return `${line_type}|${formatDate(date)}|${id}|${operation_code}|${rfb_brl_value}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${rfb_buyer_identity_type}|${buyer_country}|${rfb_buyer_cpf}|${rfb_buyer_nif}|${buyer_fullname}|${buyer_address}|${rfb_seller_identity_type}|${seller_country}|${rfb_seller_cpf}|${rfb_seller_nif}|${seller_fullname}|${seller_address}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_value}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
 }
 
 export function createPermutationOp(obj, exchange_data) {

@@ -25,7 +25,8 @@ class RFBFile {
         exchangeDataSchema.validate(exchange_data);
 
         this.exchange_data = exchange_data;
-        this.buySellOps = [];
+        this.buyOps = [];
+        this.sellOps = [];
         this.permutationOps = [];
         this.depositOps = [];
         this.withdrawOps = [];
@@ -34,10 +35,16 @@ class RFBFile {
         this.balanceReport = [];
     }
 
-    addBuySellOperation(obj){
+    addBuyOperation(obj){
         obj = buySellOperationSchema.clean(obj);
         buySellOperationSchema.validate(obj);
-        this.buySellOps.push(obj);
+        this.buyOps.push(obj);
+    }
+
+    addSellOperation(obj){
+        obj = buySellOperationSchema.clean(obj);
+        buySellOperationSchema.validate(obj);
+        this.sellOps.push(obj);
     }
 
     addPermutationOperation(obj){
@@ -81,16 +88,21 @@ class RFBFile {
         let totalValue = 0;
 
         const orderByDate = (a, b) => moment(a.date) - moment(b.date);
-        this.buySellOps = this.buySellOps.sort(orderByDate);
+        this.buyOps = this.buyOps.sort(orderByDate);
+        this.sellOps = this.sellOps.sort(orderByDate);
         this.permutationOps = this.permutationOps.sort(orderByDate);
         this.depositOps = this.depositOps.sort(orderByDate);
         this.withdrawOps = this.withdrawOps.sort(orderByDate);
         this.paymentOps = this.paymentOps.sort(orderByDate);
         this.otherOps = this.otherOps.sort(orderByDate);
 
-        this.buySellOps.forEach(val => {
+        this.buyOps.forEach(val => {
             totalValue = totalValue + Number(val.brl_value.toFixed(2));
-            res += createBuySellOp(val);
+            res += createBuySellOp(val, 'BUY', this.exchange_data);
+        });
+        this.sellOps.forEach(val => {
+            totalValue = totalValue + Number(val.brl_value.toFixed(2));
+            res += createBuySellOp(val, 'SELL', this.exchange_data);
         });
         this.permutationOps.forEach(val => {
             res += createPermutationOp(val, this.exchange_data);

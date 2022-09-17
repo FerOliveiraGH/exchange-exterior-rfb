@@ -5,25 +5,24 @@ var biscointTestex = new TestEx({
     exchange_url: 'https://binance.com' // Exchange URL
 });
 
-biscointTestex.addBuySellOperation({ 
+biscointTestex.addBuyOperation({
     date: '25/05/2019', // Input Javascript Date Object, 'DD/MM/YYYY', 'DDMMYYYY' as or Unix Timestamp
-    id: 'a12345', // Operation Id in your exchange
+
     brl_value: 'R$ 1500,80', // BRL value trade (don't allow thousands separator)
     brl_fees: 'R$ 1,49', // BRL fee trade (don't allow thousands separator)
+
     coin_symbol: 'BTC', // CRYPTO symbol (BTC for Bitcoin, ETH for Ethereum)
     coin_quantity: '0.0000001', // CRYPTO quantity (don't allow thousands separator)
-    
-    buyer_identity_type: 'CPF', // Document Type. Allowed: CPF, CNPJ, NIF_PF, NIF_PJ, PASSPORT, COUNTRY_NO_ID and USER_NO_ID
-    buyer_country: 'BR', // Country code
-    buyer_document: '442.467.420-74', // Document number
-    buyer_fullname: 'NOME COMPLETO', // Full name
-    buyer_address: 'Rua Nao Existente QD 0 LT 0', // Full address
+});
 
-    seller_identity_type: 'CPF', // Document Type. Allowed: CPF, CNPJ, NIF_PF, NIF_PJ, PASSPORT, COUNTRY_NO_ID and USER_NO_ID
-    seller_country: 'BR', // Country code
-    seller_document: '438.089.600-51', // Document number
-    seller_fullname: 'NOME COMPLETO', // Full name
-    seller_address: 'Rua Nao Existente QD 0 LT 0', // Full address
+biscointTestex.addSellOperation({
+    date: '25/05/2019', // Input Javascript Date Object, 'DD/MM/YYYY', 'DDMMYYYY' as or Unix Timestamp
+
+    brl_value: 'R$ 1500,80', // BRL value trade (don't allow thousands separator)
+    brl_fees: 'R$ 1,49', // BRL fee trade (don't allow thousands separator)
+
+    coin_symbol: 'BTC', // CRYPTO symbol (BTC for Bitcoin, ETH for Ethereum)
+    coin_quantity: '0.0000001', // CRYPTO quantity (don't allow thousands separator)
 });
 
 biscointTestex.addPermutationOperation({ 
@@ -34,11 +33,7 @@ biscointTestex.addPermutationOperation({
     received_coin_quantity: '0.01',
 
     delivered_coin_symbol: 'USDT',
-    delivered_coin_quantity: '1003.00',
-
-    exchange_name: 'Binance',
-    exchange_url: 'https://binance.com',
-    exchange_country: 'US',
+    delivered_coin_quantity: '1003.00'
 });
 
 biscointTestex.addDepositOperation({

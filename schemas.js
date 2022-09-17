@@ -134,21 +134,10 @@ export const exchangeDataSchema = new SimpleSchema({
 
 export const buySellOperationSchema = new SimpleSchema({
     date: commonSchemas.date,
-    id: commonSchemas.id,
     brl_value: commonSchemas.brl,
     brl_fees: commonSchemas.brl_fees,
     coin_symbol: commonSchemas.coin_symbol,
-    coin_quantity: commonSchemas.coin,
-    buyer_identity_type: commonSchemas.identity_type,
-    buyer_country: commonSchemas.country,
-    buyer_document: commonSchemas.document,
-    buyer_fullname: commonSchemas.name,
-    buyer_address: commonSchemas.address,
-    seller_identity_type: commonSchemas.identity_type,
-    seller_country: commonSchemas.country,
-    seller_document: commonSchemas.document,
-    seller_fullname: commonSchemas.name,
-    seller_address: commonSchemas.address
+    coin_quantity: commonSchemas.coin
 });
 
 export const permutationOperationSchema = new SimpleSchema({
@@ -159,11 +148,7 @@ export const permutationOperationSchema = new SimpleSchema({
     received_coin_quantity: commonSchemas.coin,
 
     delivered_coin_symbol: commonSchemas.coin_symbol,
-    delivered_coin_quantity: commonSchemas.coin,
-
-    exchange_name: commonSchemas.name,
-    exchange_url: commonSchemas.url,
-    exchange_country: commonSchemas.country,
+    delivered_coin_quantity: commonSchemas.coin
 });
 
 export const depositOperationSchema = new SimpleSchema({

@@ -18,23 +18,12 @@ const MyEx = new Exchange({
   exchange_url: "https://binance.com"
 })
 
-MyEx.addBuySellOperation({
-  date,
-  id,
-  brl_value,
-  brl_fees,
-  coin_symbol,
-  coin_quantity,
-  buyer_identity_type,
-  buyer_country,
-  buyer_document,
-  buyer_fullname,
-  buyer_address,
-  seller_identity_type,
-  seller_country,
-  seller_document,
-  seller_fullname,
-  seller_address
+MyEx.addBuyOperation({
+    date: '20/8/2022',
+    brl_value: '112,24',
+    brl_fees: '1,25',
+    coin_symbol: 'ETH',
+    coin_quantity: '0.01'
 })
 
 console.log(MyEx.exportFile())
