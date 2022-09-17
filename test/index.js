@@ -15,25 +15,12 @@ describe('Exchange', () => {
   })
 
   it('should add buy sell operation', () => {
-    biscointTestex.addBuySellOperation({
+    biscointTestex.addBuyOperation({
       date: '25/05/2019',
-      id: 'a12345',
       brl_value: 'R$ 1500,80',
       brl_fees: 'R$ 1,49',
       coin_symbol: 'BTC',
       coin_quantity: '0.0000001',
-
-      buyer_identity_type: 'CPF',
-      buyer_country: 'BR',
-      buyer_document: '442.467.420-74',
-      buyer_fullname: 'NOME COMPLETO',
-      buyer_address: 'Rua Nao Existente QD 0 LT 0',
-
-      seller_identity_type: 'CPF',
-      seller_country: 'BR',
-      seller_document: '438.089.600-51',
-      seller_fullname: 'NOME COMPLETO',
-      seller_address: 'Rua Nao Existente QD 0 LT 0',
     })
   })
 
@@ -41,21 +28,11 @@ describe('Exchange', () => {
     biscointTestex.addPermutationOperation({
       date: '10/05/2019',
 
-      user1_coin_symbol: 'BTC',
-      user1_coin_quantity: '0.01',
-      user1_identity_type: 'CPF',
-      user1_country: 'BR',
+      received_coin_symbol: 'BTC',
+      received_coin_quantity: '0.01',
 
-      user1_fullname: 'CR. HOLYVEYRAH',
-      user1_address: 'RUA DAS PIRAMIDES, QD 10, LT 17',
-
-      user2_coin_symbol: 'USDT',
-      user2_coin_quantity: '1003.00',
-      user2_identity_type: 'NIF_PJ',
-      user2_country: 'US',
-
-      user2_fullname: 'BITEX EXCHANGE',
-
+      delivered_coin_symbol: 'USDT',
+      delivered_coin_quantity: '1003.00'
     })
   })
 
@@ -67,12 +44,6 @@ describe('Exchange', () => {
 
       coin_symbol: 'BTC',
       coin_quantity: 0.000004,
-
-      identity_type: 'CNPJ',
-      document: '11.750.741/0001-06',
-      country: 'BR',
-
-      fullname: 'CASA DE CAMBIO',
     })
   })
 

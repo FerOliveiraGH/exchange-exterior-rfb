@@ -44,6 +44,14 @@ biscointTestex.addDepositOperation({
     coin_quantity: 0.000004,
 });
 
+biscointTestex.addWithdrawOperation({
+    date: 1564672373,
+    brl_fees: 0,
+
+    coin_symbol: 'BTC',
+    coin_quantity: 0.000004,
+});
+
 console.log(biscointTestex.exportFile());
 
 /* console.log output:
@@ -51,4 +59,5 @@ console.log(biscointTestex.exportFile());
 0120|25052019|I|150080|149|BTC|00000001000|Binance|https://binance.com|US
 0210|26082022|II|000|BTC|00100000000|10030000000000|USDT|Binance|https://binance.com|US
 0410|01082019|IV|000|BTC|00000040000|Binance|https://binance.com|US
+0510|01082019|V|000|BTC|00000040000|Binance|https://binance.com|US
 */

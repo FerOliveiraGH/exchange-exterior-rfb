@@ -111,7 +111,7 @@ class RFBFile {
             res += createDepositOp(val, this.exchange_data);
         });
         this.withdrawOps.forEach(val => {
-            res += createWithdrawOp(val);
+            res += createWithdrawOp(val, this.exchange_data);
         });
         this.paymentOps.forEach(val => {
             res += createPaymentOp(val);
