@@ -29,7 +29,7 @@ MyEx.addBuyOperation({
 console.log(MyEx.exportFile())
 ```
 
-We included an example output file [here](https://github.com/Biscoint/exchanges-rfb/blob/master/test/example-output).
+We included an example output file [here](test/example-output).
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
