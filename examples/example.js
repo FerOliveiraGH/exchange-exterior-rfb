@@ -38,25 +38,17 @@ biscointTestex.addPermutationOperation({
 
 biscointTestex.addDepositOperation({
     date: 1564672373,
-    id: 'REALLY_UNIQUE_ID',
     brl_fees: 0,
 
     coin_symbol: 'BTC',
     coin_quantity: 0.000004,
-
-    identity_type: 'CNPJ',
-    country: 'BR',
-    //document: '',
-    fullname: 'CASA DE CAMBIO',
-    //address,
 });
 
 console.log(biscointTestex.exportFile());
 
 /* console.log output:
-0000|17869530000173|BiscointTestex|https://testex.biscoint.io
-0110|25052019|a12345|I|150080|149|BTC|00000001000|1|BR|44246742074||NOME COMPLETO|Rua Nao Existente QD 0 LT 0|1|BR|43808960051||NOME COMPLETO|Rua Nao Existente QD 0 LT 0
-0210|10052019||II|000|BTC|00100000000|1|BR|||CR. HOLYVEYRAH|RUA DAS PIRAMIDES, QD 10, LT 17|USDT|10030000000000|4|US|||BITEX EXCHANGE|
-0410|01082019|REALLY_UNIQUE_ID|IV|000|BTC|00000040000|2|BR|||CASA DE CAMBIO|
-9999|1|150080|1|1|0|0|0|0
+0110|25052019|I|150080|149|BTC|00000001000|Binance|https://binance.com|US
+0120|25052019|I|150080|149|BTC|00000001000|Binance|https://binance.com|US
+0210|26082022|II|000|BTC|00100000000|10030000000000|USDT|Binance|https://binance.com|US
+0410|01082019|IV|000|BTC|00000040000|Binance|https://binance.com|US
 */

@@ -153,17 +153,10 @@ export const permutationOperationSchema = new SimpleSchema({
 
 export const depositOperationSchema = new SimpleSchema({
     date: commonSchemas.date,
-    id: commonSchemas.id,
     brl_fees: commonSchemas.brl_fees,
 
     coin_symbol: commonSchemas.coin_symbol,
     coin_quantity: commonSchemas.coin,
-
-    identity_type: commonSchemas.identity_type,
-    country: commonSchemas.country,
-    document: commonSchemas.document,
-    fullname: commonSchemas.name,
-    address: commonSchemas.address,
 });
 
 export const withdrawOperationSchema = new SimpleSchema({

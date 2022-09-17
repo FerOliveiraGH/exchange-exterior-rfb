@@ -108,7 +108,7 @@ class RFBFile {
             res += createPermutationOp(val, this.exchange_data);
         });
         this.depositOps.forEach(val => {
-            res += createDepositOp(val);
+            res += createDepositOp(val, this.exchange_data);
         });
         this.withdrawOps.forEach(val => {
             res += createWithdrawOp(val);
