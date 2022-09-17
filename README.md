@@ -1,5 +1,5 @@
 # Exchanges RFB
-Lib to produce the report required by [IN 1888](http://normas.receita.fazenda.gov.br/sijut2consulta/link.action?visao=anotado&idAto=100592) from Receita Federal do Brasil in accordance to its [manuals and layouts](https://receita.economia.gov.br/orientacao/tributaria/declaracoes-e-demonstrativos/criptoativos).
+Lib to produce the report required by [IN 1888](http://normas.receita.fazenda.gov.br/sijut2consulta/link.action?visao=anotado&idAto=100592) from Receita Federal do Brasil in accordance to its [manuals and layouts](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/manuais/manual-orientacao-leiaute-criptoativos/manual-orientacao-leiaute-criptoativos).
 
 ## Installing
 ### [YARN](https://yarnpkg.com/)
