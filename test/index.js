@@ -5,7 +5,7 @@ const fs = require('fs')
 describe('Exchange', () => {
   const biscointTestex = new Exchange({
     exchange_name: 'BiscointTestex',
-    exchange_cnpj: '17.869.530/0001-73',
+    exchange_country: 'US',
     exchange_url: 'https://testex.biscoint.io'
   })
 
