@@ -47,29 +47,6 @@ describe('Exchange', () => {
     })
   })
 
-
-  it('should add end of year report', () => {
-    biscointTestex.addBalanceReportData({
-      date: '31/12/2019',
-      fiat_balance: 100,
-
-      // coin_symbol: 'BTC',
-      // coin_balance: 0.00000001,
-
-      coin_balances: [
-        { coin_symbol: 'BTC', coin_balance: 10 },
-        { coin_symbol: 'ETH', coin_balance: 10 },
-      ],
-
-      identity_type: 'CPF',
-      document: '01234567890',
-      address: 'Rua de Teste QD 0 LT 0',
-      country: 'BR',
-
-      fullname: 'USUARIO NULO',
-    })
-  })
-
   it('should be equal to example-output', () => {
     const example = fs
       .readFileSync('test/example-output')

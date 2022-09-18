@@ -6,8 +6,6 @@ import {
     depositOperationSchema,
     withdrawOperationSchema,
     paymentOperationSchema,
-    otherOperationSchema,
-    balanceReportSchema
 } from './schemas.js';
 import {
     createBuySellOp,
@@ -15,8 +13,6 @@ import {
     createDepositOp,
     createWithdrawOp,
     createPaymentOp,
-    createOtherOp,
-    createBalanceReportData
 } from './rfb_file.js';
 
 class RFBFile {
@@ -30,9 +26,8 @@ class RFBFile {
         this.permutationOps = [];
         this.depositOps = [];
         this.withdrawOps = [];
-        this.paymentOps = [];
-        this.otherOps = [];
-        this.balanceReport = [];
+        this.paymentReceiverOps = [];
+        this.paymentPayerOps = [];
     }
 
     addBuyOperation(obj){
@@ -65,22 +60,16 @@ class RFBFile {
         this.withdrawOps.push(obj);
     }
 
-    addPaymentOperation(obj){
+    addPaymentReceiverOperation(obj){
         obj = paymentOperationSchema.clean(obj);
         paymentOperationSchema.validate(obj);
-        this.paymentOps.push(obj);
+        this.paymentReceiverOps.push(obj);
     }
 
-    addOtherOperation(obj){
-        obj = otherOperationSchema.clean(obj);
-        otherOperationSchema.validate(obj);
-        this.otherOps.push(obj);
-    }
-
-    addBalanceReportData(obj){
-        obj = balanceReportSchema.clean(obj);
-        balanceReportSchema.validate(obj);
-        this.balanceReport.push(obj);
+    addPaymentPayerOperation(obj){
+        obj = paymentOperationSchema.clean(obj);
+        paymentOperationSchema.validate(obj);
+        this.paymentPayerOps.push(obj);
     }
 
     exportFile(){
@@ -93,8 +82,8 @@ class RFBFile {
         this.permutationOps = this.permutationOps.sort(orderByDate);
         this.depositOps = this.depositOps.sort(orderByDate);
         this.withdrawOps = this.withdrawOps.sort(orderByDate);
-        this.paymentOps = this.paymentOps.sort(orderByDate);
-        this.otherOps = this.otherOps.sort(orderByDate);
+        this.paymentReceiverOps = this.paymentReceiverOps.sort(orderByDate);
+        this.paymentPayerOps = this.paymentPayerOps.sort(orderByDate);
 
         this.buyOps.forEach(val => {
             totalValue = totalValue + Number(val.brl_value.toFixed(2));
@@ -113,14 +102,11 @@ class RFBFile {
         this.withdrawOps.forEach(val => {
             res += createWithdrawOp(val, this.exchange_data);
         });
-        this.paymentOps.forEach(val => {
-            res += createPaymentOp(val);
+        this.paymentReceiverOps.forEach(val => {
+            res += createPaymentOp(val, 'RECEIVER', this.exchange_data);
         });
-        this.otherOps.forEach(val => {
-            res += createOtherOp(val);
-        });
-        this.balanceReport.forEach(val => {
-            res += createBalanceReportData(val);
+        this.paymentPayerOps.forEach(val => {
+            res += createPaymentOp(val, 'PAYER', this.exchange_data);
         });
 
         return res;
