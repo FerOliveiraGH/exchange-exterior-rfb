@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Biscoint/exchanges-rfb.git"
+    "url": "git+https://github.com/FerOliveiraGH/exchange-exterior-rfb.git"
   },
   "keywords": [
     "receita",
@@ -21,9 +21,9 @@
   "author": "biscoint",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Biscoint/exchanges-rfb/issues"
+    "url": "https://github.com/FerOliveiraGH/exchange-exterior-rfb/issues"
   },
-  "homepage": "https://github.com/Biscoint/exchanges-rfb",
+  "homepage": "https://github.com/FerOliveiraGH/exchange-exterior-rfb",
   "dependencies": {
     "cpf-cnpj-validator": "^0.1.0",
     "esm": "^3.2.25",
