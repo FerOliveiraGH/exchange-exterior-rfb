@@ -9,7 +9,6 @@ describe('Exchange', () => {
     exchange_url: 'https://testex.biscoint.io'
   })
 
-
   it('should be instance of exchange', () => {
     expect(biscointTestex).to.be.an.instanceOf(Exchange)
   })
@@ -90,6 +89,5 @@ describe('Exchange', () => {
     .to.be.a('string')
     .to.equal(example)
   })
-
 })
 
