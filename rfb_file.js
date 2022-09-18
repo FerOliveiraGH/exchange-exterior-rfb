@@ -59,7 +59,6 @@ export function createDepositOp(obj, exchange_data) {
     const rfb_brl_fees = brl_fees.toFixed(2).replace(/\./g, '');
     const rfb_coin_quantity = coin_quantity.toFixed(10).replace(/\./g, '');
 
-
     return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
 }
 
