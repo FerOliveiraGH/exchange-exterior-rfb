@@ -47,6 +47,26 @@ describe('Exchange', () => {
     })
   })
 
+  it('should add payment receiver operation', () => {
+    biscointTestex.addPaymentReceiverOperation({
+      date: 1564672373,
+      brl_fees: 0,
+
+      coin_symbol: 'BTC',
+      coin_quantity: 0.000004,
+    })
+  })
+
+  it('should add payment payer operation', () => {
+    biscointTestex.addPaymentPayerOperation({
+      date: 1564672373,
+      brl_fees: 0,
+
+      coin_symbol: 'BTC',
+      coin_quantity: 0.000004,
+    })
+  })
+
   it('should be equal to example-output', () => {
     const example = fs
       .readFileSync('test/example-output')
