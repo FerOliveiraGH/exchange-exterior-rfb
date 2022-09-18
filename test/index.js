@@ -14,8 +14,18 @@ describe('Exchange', () => {
     expect(biscointTestex).to.be.an.instanceOf(Exchange)
   })
 
-  it('should add buy sell operation', () => {
+  it('should add buy operation', () => {
     biscointTestex.addBuyOperation({
+      date: '25/05/2019',
+      brl_value: 'R$ 1500,80',
+      brl_fees: 'R$ 1,49',
+      coin_symbol: 'BTC',
+      coin_quantity: '0.0000001',
+    })
+  })
+
+  it('should add sell operation', () => {
+    biscointTestex.addSellOperation({
       date: '25/05/2019',
       brl_value: 'R$ 1500,80',
       brl_fees: 'R$ 1,49',

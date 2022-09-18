@@ -1,11 +1,11 @@
 var TestEx = require('../index.js').default;
-var biscointTestex = new TestEx({
+var testex = new TestEx({
     exchange_name: 'Binance', // Exchange Name
     exchange_country: 'US', // Exchange Country
     exchange_url: 'https://binance.com' // Exchange URL
 });
 
-biscointTestex.addBuyOperation({
+testex.addBuyOperation({
     date: '25/05/2019', // Input Javascript Date Object, 'DD/MM/YYYY', 'DDMMYYYY' as or Unix Timestamp
 
     brl_value: 'R$ 1500,80', // BRL value trade (don't allow thousands separator)
@@ -15,7 +15,7 @@ biscointTestex.addBuyOperation({
     coin_quantity: '0.0000001', // CRYPTO quantity (don't allow thousands separator)
 });
 
-biscointTestex.addSellOperation({
+testex.addSellOperation({
     date: '25/05/2019', // Input Javascript Date Object, 'DD/MM/YYYY', 'DDMMYYYY' as or Unix Timestamp
 
     brl_value: 'R$ 1500,80', // BRL value trade (don't allow thousands separator)
@@ -25,7 +25,7 @@ biscointTestex.addSellOperation({
     coin_quantity: '0.0000001', // CRYPTO quantity (don't allow thousands separator)
 });
 
-biscointTestex.addPermutationOperation({ 
+testex.addPermutationOperation({
     date: '26/08/2022',
     //brl_fees: '00', // Fees is optional
 
@@ -36,7 +36,7 @@ biscointTestex.addPermutationOperation({
     delivered_coin_quantity: '1003.00'
 });
 
-biscointTestex.addDepositOperation({
+testex.addDepositOperation({
     date: 1564672373,
     brl_fees: 0,
 
@@ -44,7 +44,7 @@ biscointTestex.addDepositOperation({
     coin_quantity: 0.000004,
 });
 
-biscointTestex.addWithdrawOperation({
+testex.addWithdrawOperation({
     date: 1564672373,
     brl_fees: 0,
 
@@ -52,7 +52,7 @@ biscointTestex.addWithdrawOperation({
     coin_quantity: 0.000004,
 });
 
-console.log(biscointTestex.exportFile());
+console.log(testex.exportFile());
 
 /* console.log output:
 0110|25052019|I|150080|149|BTC|00000001000|Binance|https://binance.com|US
