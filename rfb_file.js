@@ -42,7 +42,7 @@ export function createPermutationOp(obj, exchange_data) {
     const rfb_received_coin_quantity = received_coin_quantity.toFixed(10).replace(/\./g, '');
     const rfb_delivered_coin_quantity = delivered_coin_quantity.toFixed(10).replace(/\./g, '');
 
-    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_data.exchange_name}|${exchange_data.exchange_url}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
 }
 
 export function createDepositOp(obj, exchange_data) {
