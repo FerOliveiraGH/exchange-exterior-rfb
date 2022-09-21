@@ -53,6 +53,8 @@ describe('Exchange', () => {
 
       coin_symbol: 'BTC',
       coin_quantity: 0.000004,
+
+      origin_wallet: '123123abc456efg'
     })
   })
 

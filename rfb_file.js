@@ -42,7 +42,7 @@ export function createPermutationOp(obj, exchange_data) {
     const rfb_received_coin_quantity = received_coin_quantity.toFixed(10).replace(/\./g, '');
     const rfb_delivered_coin_quantity = delivered_coin_quantity.toFixed(10).replace(/\./g, '');
 
-    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${received_coin_symbol}|${rfb_received_coin_quantity}|${rfb_delivered_coin_quantity}|${delivered_coin_symbol}|${exchange_data.exchange_name}|${exchange_data.exchange_url}\r\n`;
 }
 
 export function createDepositOp(obj, exchange_data) {
@@ -53,13 +53,15 @@ export function createDepositOp(obj, exchange_data) {
         brl_fees,
 
         coin_symbol,
-        coin_quantity
+        coin_quantity,
+
+        origin_wallet
     } = obj;
 
     const rfb_brl_fees = brl_fees.toFixed(2).replace(/\./g, '');
     const rfb_coin_quantity = coin_quantity.toFixed(10).replace(/\./g, '');
 
-    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${exchange_data.exchange_name}|${exchange_data.exchange_url}|${exchange_data.exchange_country}\r\n`;
+    return `${line_type}|${formatDate(date)}|${operation_code}|${rfb_brl_fees}|${coin_symbol}|${rfb_coin_quantity}|${origin_wallet}|${exchange_data.exchange_name}\r\n`;
 }
 
 export function createWithdrawOp(obj, exchange_data) {

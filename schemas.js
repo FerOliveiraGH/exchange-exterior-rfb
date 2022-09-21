@@ -19,6 +19,12 @@ const commonSchemas = {
         max: 80,
         autoValue: ensureAllowedCharacters,
     },
+    origin_wallet: {
+        type: String,
+        min: 1,
+        max: 256,
+        autoValue: ensureAllowedCharacters,
+    },
     address: {
         type: String,
         max: 120,
@@ -157,6 +163,8 @@ export const depositOperationSchema = new SimpleSchema({
 
     coin_symbol: commonSchemas.coin_symbol,
     coin_quantity: commonSchemas.coin,
+
+    origin_wallet: commonSchemas.origin_wallet
 });
 
 export const withdrawOperationSchema = new SimpleSchema({
